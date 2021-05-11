@@ -16,7 +16,7 @@ public class BubbleSort {
                 1,32,5445,1188,-55,123123,-12312,55,77,89,909,130,123,12312,-1,1123,123,556,82,8,387};
         long start = System.currentTimeMillis();
         System.out.println("排序前："+Arrays.toString(array));
-        for(int i = 0; i < array.length; i++) {
+        for(int i = 0; i < array.length - 1; i++) {
             for(int j = i; j < array.length;j++) {
                 if(array[i] > array[j]) {
                     int temp = array[i];
