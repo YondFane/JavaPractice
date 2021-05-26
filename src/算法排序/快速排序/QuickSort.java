@@ -33,7 +33,7 @@ public class QuickSort {
                     j--;
                 }
                 if (i < j) {
-                    //nums[i]去除，num[j]形成下一个坑
+                    //nums[i]坑去除，num[j]形成下一个坑
                     nums[i] = nums[j];
                     i++;
                 }
