@@ -28,15 +28,7 @@ public class QuickSort {
             int j = right;
             int X = nums[left];
             while (i < j) {
-                //从左往右找数组中小于等于X的元素
-                while (i < j && nums[i] < X) {
-                    i++;
-                }
-                if (i < j) {
-                    //nums[j]坑去除，nums[i]形成下一个坑
-                    nums[j] = nums[i];
-                    j--;
-                }
+
                 //从右往左找数组中小于X的元素
                 while (i < j && nums[j] >= X) {
                     j--;
@@ -45,6 +37,15 @@ public class QuickSort {
                     //nums[i]去除，num[j]形成下一个坑
                     nums[i] = nums[j];
                     i++;
+                }
+                //从左往右找数组中小于等于X的元素
+                while (i < j && nums[i] < X) {
+                    i++;
+                }
+                if (i < j) {
+                    //nums[j]坑去除，nums[i]形成下一个坑
+                    nums[j] = nums[i];
+                    j--;
                 }
             }
             //填坑
