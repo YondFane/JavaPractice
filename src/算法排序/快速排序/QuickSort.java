@@ -28,7 +28,6 @@ public class QuickSort {
             int j = right;
             int X = nums[left];
             while (i < j) {
-
                 //从右往左找数组中小于X的元素
                 while (i < j && nums[j] >= X) {
                     j--;
