@@ -24,6 +24,8 @@ public class Singleton {
          * 懒汉式
          * 第一次调用getInstance()方法获取实例时
          * 创建实例对象
+         *
+         * 双重检测，解决并发问题
          */
         if (singleton == null) {
             //线程安全
