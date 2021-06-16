@@ -1,12 +1,12 @@
-package 设计模式.创建型模型.工厂方法模式.简单工厂模式;
+package 设计模式.创建型模型.工厂模式;
 
-public class Lamborghini implements Car {
+public class BMW implements Car {
     private String name;
 
-    public Lamborghini() {
+    public BMW() {
     }
 
-    public Lamborghini(String name) {
+    public BMW(String name) {
         this.name = name;
     }
 
