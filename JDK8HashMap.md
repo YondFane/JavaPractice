@@ -80,9 +80,9 @@ threshold = 容量 * 因子；
     }
 ```
 
-**tableSizeFor()方法会根据new HashMap(int initialCapacity, float loadFactor)传入的初始容量initialCapacity进行调整，获取最接近 2^n - 1 次方的值。**
+**tableSizeFor()方法会根据new HashMap(int initialCapacity, float loadFactor)传入的初始容量initialCapacity进行调整，获取最接近 2^n 次方的值。**
 
-**例如传入20，那么return返回的是31**
+**例如传入20，那么return返回的是32**
 
 ```java
 	/**
@@ -383,7 +383,7 @@ final Node<K,V>[] resize() {
                     if (hiTail != null) {
                         hiTail.next = null;
                         // 高位链表放在对应的数组增加长度位置上 
-                        // 例如原来数组长度为16,扩容后长度为32，原来位置3，现在位置为21
+                        // 例如原来数组长度为16,扩容后长度为32，原来位置3，现在位置为20
                         newTab[j + oldCap] = hiHead;
                     }
                 }
