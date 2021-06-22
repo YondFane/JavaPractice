@@ -383,7 +383,7 @@ final Node<K,V>[] resize() {
                     if (hiTail != null) {
                         hiTail.next = null;
                         // 高位链表放在对应的数组增加长度位置上 
-                        // 例如原来数组长度为16,扩容后长度为32，原来位置3，现在位置为20
+                        // 例如原来数组长度为16,扩容后长度为32，原来位置3，现在位置为19
                         newTab[j + oldCap] = hiHead;
                     }
                 }
