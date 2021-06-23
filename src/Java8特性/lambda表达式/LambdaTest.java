@@ -78,7 +78,7 @@ public class LambdaTest {
 
 }
 
-/**
+/** 函数式接口
  * 1、一个只有单个方法的接口 （默认方法除外）
  * 使用@FunctionalInterface注解可以校验接口是否符合Lambda表达式标准
  *
