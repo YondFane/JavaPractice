@@ -2,8 +2,6 @@ package 有道云翻译;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
-import cn.hutool.crypto.asymmetric.SignAlgorithm;
-import lombok.Builder;
 
 /*
  * 调用参数

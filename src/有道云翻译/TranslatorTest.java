@@ -1,10 +1,6 @@
 package 有道云翻译;
 
-import cn.hutool.json.JSON;
-import cn.hutool.json.JSONUtil;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class TranslatorTest {
     public static void main(String[] args) {
