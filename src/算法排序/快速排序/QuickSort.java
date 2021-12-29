@@ -44,7 +44,7 @@ public class QuickSort {
                     nums[i] = nums[j];
                     i++;
                 }
-                //从左往右找数组中小于等于X的元素
+                //从左往右找数组大于等于X的元素
                 while (i < j && nums[i] < X) {
                     i++;
                 }
