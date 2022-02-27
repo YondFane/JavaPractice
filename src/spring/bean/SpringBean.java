@@ -5,7 +5,7 @@ import org.springframework.beans.factory.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class SpringBean implements BeanNameAware, BeanFactoryAware, InitializingBean, DisposableBean {
 
 
