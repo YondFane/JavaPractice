@@ -1,5 +1,6 @@
 package 爬虫.必应壁纸;
 
+import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.ReUtil;
 import cn.hutool.http.HttpUtil;
 
@@ -74,6 +75,9 @@ public class SpiderMain {
      * 下载
      */
     public static void downLoad(ThreadPoolExecutor threadPool, List<String> imageUrlList, String downLoadPath) {
+        if(!FileUtil.exist(downLoadPath)) {
+            System.err.println("存放地址不存在！");
+        }
         imageUrlList.forEach(url -> {
             threadPool.submit(() -> {
                 try {
