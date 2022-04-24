@@ -8,6 +8,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
+
 //必应壁纸网址
 //https://bing.ioliu.cn/
 public class SpiderMain {
@@ -32,7 +33,7 @@ public class SpiderMain {
         // 图片链接结果
         List<String> imageUrlList = new ArrayList<>();
         // 提交任务
-        submitTask(threadPool, futureList, 1);
+        submitTask(threadPool, futureList, 187);
         // 遍历结果
         foreachResult(futureList, imageUrlList);
         // 下载文件
@@ -51,10 +52,10 @@ public class SpiderMain {
         while (true) {
             Thread.sleep(3000);
             sb.append("========================================\n");
-            sb.append("活动线程数量：" + threadPool.getActiveCount()+"\n");
-            sb.append("当前线程数量：" + threadPool.getPoolSize()+"\n");
-            sb.append("任务总共数量：" + threadPool.getTaskCount()+"\n");
-            sb.append("任务完成数量：" + threadPool.getCompletedTaskCount()+"\n");
+            sb.append("活动线程数量：" + threadPool.getActiveCount() + "\n");
+            sb.append("当前线程数量：" + threadPool.getPoolSize() + "\n");
+            sb.append("任务总共数量：" + threadPool.getTaskCount() + "\n");
+            sb.append("任务完成数量：" + threadPool.getCompletedTaskCount() + "\n");
             sb.append("========================================\n");
             System.out.println(sb.toString());
             sb.setLength(0);
@@ -75,7 +76,7 @@ public class SpiderMain {
      * 下载
      */
     public static void downLoad(ThreadPoolExecutor threadPool, List<String> imageUrlList, String downLoadPath) {
-        if(!FileUtil.exist(downLoadPath)) {
+        if (!FileUtil.exist(downLoadPath)) {
             System.err.println("存放地址不存在！");
         }
         imageUrlList.forEach(url -> {
@@ -85,8 +86,13 @@ public class SpiderMain {
                     Thread.sleep(SLEEP_TIME);
                     String content = HttpUtil.get(url, TIMEOUT);
                     String imageUrl = ReUtil.get("data-progressive=\"(.*?)\"", content, 1);
-                    System.out.println(imageUrl);
-                    long l = HttpUtil.downloadFile(imageUrl, new File(downLoadPath), TIMEOUT);
+                    if (imageUrl != null && !imageUrl.equals("")) {
+                        String fileName = imageUrl.substring(imageUrl.lastIndexOf('/') + 1, imageUrl.lastIndexOf('?'));
+                        if (!new File(DOWNLOAD_PATH, fileName).exists()) {
+                            System.out.println(imageUrl);
+                            HttpUtil.downloadFile(imageUrl, new File(downLoadPath), TIMEOUT);
+                        }
+                    }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
