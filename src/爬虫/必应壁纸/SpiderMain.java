@@ -44,6 +44,7 @@ public class SpiderMain {
      * 监控
      */
     public static void monitor(ThreadPoolExecutor threadPool) throws Exception {
+        // count次遍历中线程池活动线程为零时关闭线程池
         int count = 3;
         StringBuilder sb = new StringBuilder();
         while (true) {
