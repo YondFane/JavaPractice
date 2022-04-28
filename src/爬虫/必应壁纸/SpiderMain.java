@@ -91,7 +91,11 @@ public class SpiderMain {
                         if (!new File(DOWNLOAD_PATH, fileName).exists()) {
                             System.out.println(imageUrl);
                             HttpUtil.downloadFile(imageUrl, new File(downLoadPath), TIMEOUT);
+                        } else {
+                            System.out.println("已在文件夹中："+imageUrl);
                         }
+                    } else {
+                        System.out.println("IP可能已被封禁！");
                     }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
